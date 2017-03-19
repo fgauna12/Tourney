@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.4.0" />
+    <PackageReference Include="RavenDB.Client" Version="3.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tourney.Domain\Tourney.Domain.csproj" />
+    <ProjectReference Include="..\Tourney.Infrastructure.Dtos\Tourney.Infrastructure.Dtos.csproj" />
+    <ProjectReference Include="..\Tourney.Infrastructure.Persistance.Raven\Tourney.Infrastructure.Persistance.Raven.csproj" />
+  </ItemGroup>
+
+</Project>
