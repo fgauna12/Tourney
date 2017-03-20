@@ -1,0 +1,10 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+.app-navbar{
+    @extend .navbar-light;
+    @extend .bg-faded;
+
+    .card-title {
+        @extend .text-primary;
+    }
+}
