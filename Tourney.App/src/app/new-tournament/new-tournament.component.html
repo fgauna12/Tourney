@@ -1,0 +1,39 @@
+<div class="app-container">
+  <div class="col-md-12">
+    <div class="card app-new-tournament">
+      <div class="card-header">
+        <h3>New Tournament</h3>
+      </div>
+      <div class="card-block">
+        <p class="card-text">Create a new tournament</p>
+        <form class="" novalidate>
+          <div class="form-group row">
+            <label for="nameInput" class="col-sm-2 col-form-label">Name</label>
+            <input type="text" class="form-control col-sm-10" id="nameInput" placeholder="Tournament Name">
+          </div>
+          <div class="form-group row">
+            <label for="descriptionInput" class="col-sm-2 col-form-label">Description</label>
+            <input type="text" class="form-control col-sm-10" id="descriptionInput" placeholder="Description">
+          </div>
+          <div class="form-group row">
+            <label for="maxCapacityInput" class="col-sm-2 col-form-label">Max Capacity</label>
+            <input type="number" min="1" class="form-control col-sm-10" id="maxCapacityInput" placeholder="Max Capacity">
+            <small class="offset-sm-2 form-text text-muted">The max number of players this tournament can accommodate</small>
+          </div>
+          <div class="form-group row">
+            <label for="startDateInput" class="col-sm-2 col-form-label">Start Date</label>
+            <div class="input-group col-sm-10 p-0">
+              <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-addon" (click)="d.toggle()">
+                <i class="fa fa-calendar-o"></i>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success pull-right"><i class="fa fa-plus"></i> Create Tournament</button>
+      </div>
+    </div>
+  </div>
+</div>

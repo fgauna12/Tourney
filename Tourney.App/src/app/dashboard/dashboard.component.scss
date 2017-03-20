@@ -1,6 +1,7 @@
 @import "../../_variables.scss";
+@import "../app.component.scss";
 
 .app-notification {
     background-color: $app-messsage-bg;
-    margin-top: 10px;
+    @extend .ml-1;
 }

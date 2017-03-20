@@ -1,0 +1,7 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../_variables.scss";
+
+.app-container {
+    @extend .container;
+    @extend .mt-1;
+}
