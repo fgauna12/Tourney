@@ -33,8 +33,18 @@ namespace Tourney.Web
             services.AddMvc();
 
             services.AddSwaggerGen();
-
-            services.AddCors();
+            
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy("default", policy =>
+                {
+                    policy
+                        .WithOrigins("http://localhost:5003")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
             ConfigureIoc(services);
             
@@ -51,13 +61,24 @@ namespace Tourney.Web
             {
                 app.UseDeveloperExceptionPage();
 
-                app.UseCors(builder =>
-                {
-                    builder
-                        .WithOrigins("https://localhost:4200")
-                        .AllowAnyHeader();
-                });
+                //app.UseCors(builder =>
+                //{
+                //    builder
+                //        .WithOrigins("https://localhost:4200")
+                //        .AllowAnyHeader();
+                //});
             }
+
+            // this uses the policy called "default"
+            app.UseCors("default");
+            
+            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+            {
+                Authority = "http://localhost:5000",
+                RequireHttpsMetadata = false,
+                ApiName = "tournaments",
+                AllowedScopes = { "tournaments"}
+            });
 
             app.UseSwagger();
 

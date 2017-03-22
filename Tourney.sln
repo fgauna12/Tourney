@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Web", "Tourney.Web\Tourney.Web.csproj", "{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Web", "Tourney.Web\Tourney.Web.csproj", "{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Application", "Tourney.Application\Tourney.Application.csproj", "{76386512-899D-4BCA-8647-316F172F9E09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Application", "Tourney.Application\Tourney.Application.csproj", "{76386512-899D-4BCA-8647-316F172F9E09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Domain", "Tourney.Domain\Tourney.Domain.csproj", "{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Domain", "Tourney.Domain\Tourney.Domain.csproj", "{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Infrastructure.Dtos", "Tourney.Infrastructure.Dtos\Tourney.Infrastructure.Dtos.csproj", "{1F2933B1-CB40-488F-88CB-B219306F1303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Infrastructure.Dtos", "Tourney.Infrastructure.Dtos\Tourney.Infrastructure.Dtos.csproj", "{1F2933B1-CB40-488F-88CB-B219306F1303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Infrastructure.Persistance.Raven", "Tourney.Infrastructure.Persistance.Raven\Tourney.Infrastructure.Persistance.Raven.csproj", "{BC852EC4-AD42-4AEE-93D3-8029D09933F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Infrastructure.Persistance.Raven", "Tourney.Infrastructure.Persistance.Raven\Tourney.Infrastructure.Persistance.Raven.csproj", "{BC852EC4-AD42-4AEE-93D3-8029D09933F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Identity", "Tourney.Identity\Tourney.Identity.csproj", "{216C777E-974C-409D-96C1-238537810451}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{216C777E-974C-409D-96C1-238537810451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{216C777E-974C-409D-96C1-238537810451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{216C777E-974C-409D-96C1-238537810451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{216C777E-974C-409D-96C1-238537810451}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

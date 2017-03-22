@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tourney.Application.Services.Tournament;
 using Tourney.Infrastructure.Dtos;
@@ -18,6 +19,7 @@ namespace Tourney.Web.Controllers
 
         [Route("")]
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetTournaments(PagedRequest pagedRequest)
         {
             var response = await _tournamentsService.GetTournamentsAsync(pagedRequest);

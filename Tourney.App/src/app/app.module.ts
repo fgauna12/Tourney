@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotfoundComponent } from './routing/notfound/notfound.component';
 import { RoutingModule } from './routing/routing.module';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NewTournamentComponent } from './new-tournament/new-tournament.componen
     NavbarComponent,
     DashboardComponent,
     NotfoundComponent,
-    NewTournamentComponent
+    NewTournamentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
