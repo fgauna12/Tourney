@@ -1,5 +1,4 @@
 import { CallbackComponent } from '../login/callback/callback.component';
-import { LoginComponent } from '../login/login.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,7 +7,6 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { NewTournamentComponent } from '../new-tournament/new-tournament.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'new-tournament', component: NewTournamentComponent },
   { path: 'callback', component: CallbackComponent },
