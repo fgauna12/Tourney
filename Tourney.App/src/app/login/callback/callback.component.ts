@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../shared/authentication.service';
+import { UserManagerConfiguration } from '../../shared/authentication.service';
+import { Component, OnInit } from '@angular/core';
 import { UserManager, Log } from "oidc-client";
+
 
 @Component({
   selector: 'app-callback',
@@ -10,13 +11,13 @@ import { UserManager, Log } from "oidc-client";
 })
 export class CallbackComponent implements OnInit {
 
-  constructor(private router: Router,
-            private authenticationService: AuthenticationService,
-            private userManager: UserManager) {
+  userManager : UserManager;
+  constructor(private router: Router) {
+      this.userManager = new UserManager(UserManagerConfiguration);
   }
 
   ngOnInit() {
-    this.userManager.signinRedirectCallback().then(function (user) {
+    this.userManager.signinRedirectCallback().then((user)  => {
             if (user == null) {
                 console.log('waiting')
             }
@@ -24,7 +25,7 @@ export class CallbackComponent implements OnInit {
                 this.router.navigate(['/dashboard']);
             }
         })
-        .catch(function (er) {
+        .catch((er) => {
             console.error(er);
         });
   }

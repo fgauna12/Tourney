@@ -39,7 +39,8 @@ namespace Tourney.Web
                 // this defines a CORS policy called "default"
                 options.AddPolicy("default", policy =>
                 {
-                    policy
+                    //Local policy
+                    policy 
                         .WithOrigins("http://localhost:5003")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
@@ -61,16 +62,9 @@ namespace Tourney.Web
             {
                 app.UseDeveloperExceptionPage();
 
-                app.UseCors(builder =>
-                {
-                    builder
-                        .WithOrigins("https://localhost:4200")
-                        .AllowAnyHeader();
-                });
+                // this uses the policy called "default"
+                app.UseCors("default");
             }
-
-            // this uses the policy called "default"
-            app.UseCors("default");
             
             app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
             {

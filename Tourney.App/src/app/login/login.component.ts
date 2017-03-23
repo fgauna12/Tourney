@@ -23,11 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
  api = () => {
-    this.authenticationService.getUser();
 
-    let userLoadedEvent = this.authenticationService.userLoadedEvent;
-    userLoadedEvent.subscribe(user => {
-      let url = "http://localhost:5001/api/tournaments";
+
+    this.authenticationService.getUser().then((user) => {
+     let url = "http://localhost:5001/api/tournaments";
 
         let xhr = new XMLHttpRequest();
         xhr.open("GET", url);
@@ -36,11 +35,6 @@ export class LoginComponent implements OnInit {
         }
         xhr.setRequestHeader("Authorization", "Bearer " + user.access_token);
         xhr.send();
-
-        userLoadedEvent.unsubscribe();
     });
-
-
-}
-
+ }
 }

@@ -1,38 +1,33 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import {UserManager, Log, User} from 'oidc-client';
 
+export const UserManagerConfiguration : Oidc.UserManagerSettings =  {
+  authority: "http://localhost:5000",
+  client_id: "js",
+  redirect_uri: "http://localhost:5003/callback",
+  response_type: "id_token token",
+  scope:"openid profile tournaments",
+  post_logout_redirect_uri : "http://localhost:5003/index.html",
+
+  // silent_redirect_uri: 'http://localhost:5003',
+  // automaticSilentRenew: true,
+  // //silentRequestTimeout:10000,
+
+  // filterProtocolClaims: true,
+  // loadUserInfo: true
+};
+
 @Injectable()
 export class AuthenticationService {
-
-  config : Oidc.UserManagerSettings =  {
-    authority: "http://localhost:5000",
-    client_id: "js",
-    redirect_uri: "http://localhost:5003/callback",
-    response_type: "id_token token",
-    scope:"openid profile tournaments",
-    post_logout_redirect_uri : "http://localhost:5003/index.html",
-
-    // silent_redirect_uri: 'http://localhost:5003',
-    // automaticSilentRenew: true,
-    // //silentRequestTimeout:10000,
-
-    // filterProtocolClaims: true,
-    // loadUserInfo: true
-  };
   mgr: UserManager;
   userLoadedEvent: EventEmitter<User> = new EventEmitter<User>();
   constructor() {
-    this.mgr = new UserManager(this.config);
+    this.mgr = new UserManager(UserManagerConfiguration);
     Log.logger = console;
    }
 
-  getUser() {
-    this.mgr.getUser().then((user) => {
-      console.log("got user", user);
-      this.userLoadedEvent.emit(user);
-    }).catch(function (err) {
-      console.log(err);
-    });
+  getUser() : Promise<User> {
+    return this.mgr.getUser();
   }
 
   log = function() {
@@ -56,3 +51,5 @@ export class AuthenticationService {
     this.mgr.signoutRedirect();
 }
 }
+
+
