@@ -1,3 +1,4 @@
+import { CallbackComponent } from '../login/callback/callback.component';
 import { LoginComponent } from '../login/login.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
@@ -10,8 +11,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'new-tournament', component: NewTournamentComponent },
+  { path: 'callback', component: CallbackComponent },
   { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
-  { path: '**', pathMatch: 'full', component: NotfoundComponent },
+  { path: '**', pathMatch: 'full', component: NotfoundComponent }
 ];
 
 @NgModule({

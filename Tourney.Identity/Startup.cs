@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.Test;
-using IdentityServer4.Validation;
+﻿using IdentityServer4.Quickstart.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +32,7 @@ namespace Tourney.Identity
                 .AddInMemoryIdentityResources(Identities.GetIdentityResources())
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryApiResources(Resources.Get())
-                .AddTestUsers(Users.GetUsers());
+                .AddTestUsers(TestUsers.Users);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,26 +54,5 @@ namespace Tourney.Identity
             app.UseMvcWithDefaultRoute();
         }
     }
-
-    public class Users
-    {
-        public static List<TestUser> GetUsers()
-        {
-            return new List<TestUser>
-    {
-        new TestUser
-        {
-            SubjectId = "1",
-            Username = "alice",
-            Password = "password"
-        },
-        new TestUser
-        {
-            SubjectId = "2",
-            Username = "bob",
-            Password = "password"
-        }
-    };
-        }
-    }
+    
 }

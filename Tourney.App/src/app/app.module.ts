@@ -1,3 +1,4 @@
+import { AuthenticationService } from './shared/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +12,7 @@ import { NotfoundComponent } from './routing/notfound/notfound.component';
 import { RoutingModule } from './routing/routing.module';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
 import { LoginComponent } from './login/login.component';
+import { CallbackComponent } from './login/callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     DashboardComponent,
     NotfoundComponent,
     NewTournamentComponent,
-    LoginComponent
+    LoginComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { LoginComponent } from './login/login.component';
     RoutingModule,
     NgbModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

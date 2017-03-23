@@ -61,12 +61,12 @@ namespace Tourney.Web
             {
                 app.UseDeveloperExceptionPage();
 
-                //app.UseCors(builder =>
-                //{
-                //    builder
-                //        .WithOrigins("https://localhost:4200")
-                //        .AllowAnyHeader();
-                //});
+                app.UseCors(builder =>
+                {
+                    builder
+                        .WithOrigins("https://localhost:4200")
+                        .AllowAnyHeader();
+                });
             }
 
             // this uses the policy called "default"
