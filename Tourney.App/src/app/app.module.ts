@@ -1,3 +1,6 @@
+import 'bootstrap';
+
+import { TournamentService } from './tournament/tournament.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,7 +34,7 @@ import { CallbackComponent } from './login/callback/callback.component';
     RoutingModule,
     NgbModule.forRoot(),
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, TournamentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

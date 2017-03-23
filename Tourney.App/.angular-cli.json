@@ -20,9 +20,13 @@
       "prefix": "app",
       "styles": [
         "styles.scss", 
-         "../node_modules/font-awesome/css/font-awesome.css"
+         "../node_modules/font-awesome/css/font-awesome.css",
+         "../node_modules/tether/dist/css/tether.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/tether/dist/js/tether.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

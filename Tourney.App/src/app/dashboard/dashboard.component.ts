@@ -1,3 +1,5 @@
+import { Tournament } from '../tournament/tournament.model';
+import { TournamentService } from '../tournament/tournament.service';
 import { AuthenticationService } from '../shared/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,17 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  loadedUserSub: any;
-  currentUser: any;
-  constructor(private authenticationService: AuthenticationService) { }
+  tournaments: Tournament[];
+  totalTournaments: number;
+  constructor(private authenticationService: AuthenticationService,
+              private tournamentService: TournamentService) { }
 
   ngOnInit() {
-    this.loadUser();
+    this.loadTournaments();
   }
 
-  loadUser() {
-    this.authenticationService.getUser().then((user) => {
-      this.currentUser = user;
-    });
+  loadTournaments() {
+    this.tournaments = [];
+    this.tournamentService.getTournaments()
+      .subscribe(pagedResponse => {
+        this.tournaments = pagedResponse.results;
+        this.totalTournaments = pagedResponse.total;
+      },
+      err => {
+        console.error('Could not get the tournaments');
+      });
   }
 }

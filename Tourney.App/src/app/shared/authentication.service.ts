@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { Injectable, EventEmitter } from '@angular/core';
 import {UserManager, Log, User} from 'oidc-client';
 
@@ -26,8 +27,12 @@ export class AuthenticationService {
     Log.logger = console;
    }
 
-  getUser() : Promise<User> {
+  getUser(): Promise<User> {
     return this.mgr.getUser();
+  }
+
+  isLoggedIn(): Observable<boolean> {
+    return Observable.fromPromise(this.getUser()).map(user => user ? true : false);
   }
 
   log = function() {
