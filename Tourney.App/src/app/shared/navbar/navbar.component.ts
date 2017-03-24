@@ -10,6 +10,7 @@ import { User } from 'oidc-client';
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean;
   currentUser: User;
+  currentUserName: string;
   constructor(private authenticationService: AuthenticationService) {
   }
 
@@ -23,9 +24,10 @@ export class NavbarComponent implements OnInit {
   }
 
   loadUser = () => {
-    this.authenticationService.getUser().then((user) => {
+    this.authenticationService.getUser().then((user: User) => {
       console.log('Loaded user', user);
       this.currentUser = user;
+      this.currentUserName = user.profile ? (Array.isArray(user.profile.name) ? user.profile.name[0] : user.profile.name) : null;
     });
   }
 

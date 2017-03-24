@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using IdentityServer4;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 
 namespace Tourney.Identity
 {
@@ -12,19 +14,20 @@ namespace Tourney.Identity
     public static class AzureAdOpenConnectionMiddlewareExtension
     {
         public static IApplicationBuilder UseAzureAdOpenConnect(this IApplicationBuilder app, AzureAdSettings settings)
-        {            
+        {
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
             app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
             {
-                AuthenticationScheme = "Azure AD",
+                //AuthenticationScheme = "Azure AD",
+                AuthenticationScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
                 DisplayName = "Azure AD", 
                 ClientId = settings.ClientId,
                 //ClientSecret = ClientSecret, // for code flow
                 Authority = settings.Authority,
                 //ResponseType = OpenIdConnectResponseType.CodeIdToken,
                 PostLogoutRedirectUri = "/account/signout",
-                // GetClaimsFromUserInfoEndpoint = true,
+                GetClaimsFromUserInfoEndpoint = true,
             });
             return app;
         }

@@ -210,7 +210,7 @@ namespace IdentityServer4.Quickstart.UI
             }
 
             // retrieve claims of the external user
-            var claims = tempUser.Claims.ToList();
+            var claims = tempUser.Claims?.ToList();
 
             // try to determine the unique id of the external user - the most common claim type for that are the sub claim and the NameIdentifier
             // depending on the external provider, some other claim type might be used
