@@ -1,4 +1,5 @@
 ﻿using IdentityServer4.Quickstart.UI;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,13 @@ namespace Tourney.Identity
 {
     public class Startup
     {
+        private static class Secrets
+        {
+            public const string AzureAdClientId = "AzureAd:ClientId";
+            public const string AzureAdClientSecret = "AzureAd:ClientSecret";
+            public const string AzureAdAuthority = "AzureAd:Authority";
+        }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -16,6 +24,12 @@ namespace Tourney.Identity
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
             Configuration = builder.Build();
         }
 
@@ -33,6 +47,11 @@ namespace Tourney.Identity
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryApiResources(Resources.Get())
                 .AddTestUsers(TestUsers.Users);
+
+            //For azure ad
+            services.AddAuthentication(sharedOptions =>
+                sharedOptions.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +59,7 @@ namespace Tourney.Identity
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
-            app.UseMvc();
-
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -50,9 +67,16 @@ namespace Tourney.Identity
 
             app.UseIdentityServer();
 
+            //See AzureAdOpenConnectionMiddlewareExtension
+            app.UseAzureAdOpenConnect(new AzureAdSettings()
+            {
+                Authority = Configuration[Secrets.AzureAdAuthority],
+                ClientId = Configuration[Secrets.AzureAdClientId],
+                ClientSecret = Configuration[Secrets.AzureAdClientSecret]
+            });
+
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }
-    
 }
