@@ -9,6 +9,7 @@ export const UserManagerConfiguration : Oidc.UserManagerSettings =  {
   response_type: "id_token token",
   scope:"openid profile tournaments",
   post_logout_redirect_uri : "http://localhost:5003/index.html",
+  loadUserInfo: true
 
   // silent_redirect_uri: 'http://localhost:5003',
   // automaticSilentRenew: true,

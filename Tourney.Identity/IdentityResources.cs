@@ -11,6 +11,14 @@ namespace Tourney.Identity
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResource()
+                {
+                    Name = "role",
+                    UserClaims = new List<string>()
+                    {
+                        "role"
+                    }
+                }
             };
         }
     }

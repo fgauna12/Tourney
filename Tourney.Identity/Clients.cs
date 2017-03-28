@@ -25,11 +25,7 @@ namespace Tourney.Identity
                         "tournaments"
                     },
                     ClientName = "Tourney API",
-                    AccessTokenType = AccessTokenType.Jwt,
-                    Claims = new List<Claim>()
-                    {
-                        new Claim("Name", "Frank")
-                    }
+                    AccessTokenType = AccessTokenType.Jwt
                 },
                 new Client
                 {

@@ -43,6 +43,7 @@ namespace Tourney.Identity
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
+                .AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Identities.GetIdentityResources())
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryApiResources(Resources.Get())
