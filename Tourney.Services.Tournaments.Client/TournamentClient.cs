@@ -19,12 +19,9 @@ namespace Tourney.Services.Tournaments.Client
         async Task<PagedResponse<Tournament>> IAsyncRequestHandler<GetTournamentsPaged, PagedResponse<Tournament>>.Handle(GetTournamentsPaged message)
         {
             var response = await _httpClient.GetAsync("/api/tournaments");
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<PagedResponse<Tournament>>(content);
-            }
-            throw new InvalidOperationException();
+            response.EnsureSuccessStatusCode();
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<PagedResponse<Tournament>>(content);
         }
     }
 }

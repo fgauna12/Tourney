@@ -8,12 +8,14 @@ namespace Tourney.Services.Tournaments.Client
 {
     public class TournamentClientModule : Module
     {
+        public string BaseUri { get; set; }
         protected override void Load(ContainerBuilder builder)
         {
             var httpClient = new HttpClient()
             {
-                BaseAddress = new System.Uri("http://localhost:5004")
+                BaseAddress = new System.Uri(BaseUri)
             };
+            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             builder.RegisterInstance(httpClient);
 
             // enables contravariant Resolve() for interfaces with single contravariant ("in") arg

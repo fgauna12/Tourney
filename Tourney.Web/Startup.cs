@@ -20,11 +20,14 @@ namespace Tourney.Web
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            Env = env;
         }
 
         public IConfigurationRoot Configuration { get; }
 
         public IContainer ApplicationContainer { get; set; }
+
+        public IHostingEnvironment Env { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -85,7 +88,10 @@ namespace Tourney.Web
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule(new TournamentClientModule());
+            builder.RegisterModule(new TournamentClientModule()
+            {
+                BaseUri = Environment.GetEnvironmentVariable("TournamentService")
+            });
 
             builder.Populate(services);
             this.ApplicationContainer = builder.Build();
