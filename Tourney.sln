@@ -1,19 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Web", "Tourney.Web\Tourney.Web.csproj", "{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Application", "Tourney.Application\Tourney.Application.csproj", "{76386512-899D-4BCA-8647-316F172F9E09}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Domain", "Tourney.Domain\Tourney.Domain.csproj", "{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Infrastructure.Dtos", "Tourney.Infrastructure.Dtos\Tourney.Infrastructure.Dtos.csproj", "{1F2933B1-CB40-488F-88CB-B219306F1303}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tourney.Infrastructure.Persistance.Raven", "Tourney.Infrastructure.Persistance.Raven\Tourney.Infrastructure.Persistance.Raven.csproj", "{BC852EC4-AD42-4AEE-93D3-8029D09933F7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Identity", "Tourney.Identity\Tourney.Identity.csproj", "{216C777E-974C-409D-96C1-238537810451}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{46D66054-60EF-4708-9C12-74D32F4D2391}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tournaments", "Tournaments", "{891CBE37-8B7A-44E7-A200-71A4A7D75454}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{5206ACB1-0AA1-462C-880F-A04D7A12E453}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Access Points", "Access Points", "{3F77E1F8-4C8D-4C98-9736-163F93E15595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Services.Tournaments", "..\Tourney.Services.Tournaments\Tourney.Services.Tournaments.csproj", "{49AAE042-6090-4D18-8DC3-484E76A6CD15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Services.Tournaments.Contracts", "Tourney.Services.Tournaments.Contracts\Tourney.Services.Tournaments.Contracts.csproj", "{02DB8B60-F559-4EED-841E-5C16A804C852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Services.Tournaments.Client", "Tourney.Services.Tournaments.Client\Tourney.Services.Tournaments.Client.csproj", "{92D091EF-366D-403C-A4EB-A06C0C063700}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,28 +31,35 @@ Global
 		{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76386512-899D-4BCA-8647-316F172F9E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76386512-899D-4BCA-8647-316F172F9E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76386512-899D-4BCA-8647-316F172F9E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76386512-899D-4BCA-8647-316F172F9E09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E60CE47B-6D6B-4C87-80EF-4BFFFA607B2C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F2933B1-CB40-488F-88CB-B219306F1303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F2933B1-CB40-488F-88CB-B219306F1303}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F2933B1-CB40-488F-88CB-B219306F1303}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F2933B1-CB40-488F-88CB-B219306F1303}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC852EC4-AD42-4AEE-93D3-8029D09933F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{216C777E-974C-409D-96C1-238537810451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{216C777E-974C-409D-96C1-238537810451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216C777E-974C-409D-96C1-238537810451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216C777E-974C-409D-96C1-238537810451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D66054-60EF-4708-9C12-74D32F4D2391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D66054-60EF-4708-9C12-74D32F4D2391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D66054-60EF-4708-9C12-74D32F4D2391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D66054-60EF-4708-9C12-74D32F4D2391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49AAE042-6090-4D18-8DC3-484E76A6CD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AAE042-6090-4D18-8DC3-484E76A6CD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AAE042-6090-4D18-8DC3-484E76A6CD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AAE042-6090-4D18-8DC3-484E76A6CD15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DB8B60-F559-4EED-841E-5C16A804C852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DB8B60-F559-4EED-841E-5C16A804C852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DB8B60-F559-4EED-841E-5C16A804C852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DB8B60-F559-4EED-841E-5C16A804C852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D091EF-366D-403C-A4EB-A06C0C063700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D091EF-366D-403C-A4EB-A06C0C063700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D091EF-366D-403C-A4EB-A06C0C063700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D091EF-366D-403C-A4EB-A06C0C063700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8AE5AC81-9FCF-4771-8B33-C6BCA9DC062D} = {3F77E1F8-4C8D-4C98-9736-163F93E15595}
+		{216C777E-974C-409D-96C1-238537810451} = {5206ACB1-0AA1-462C-880F-A04D7A12E453}
+		{49AAE042-6090-4D18-8DC3-484E76A6CD15} = {891CBE37-8B7A-44E7-A200-71A4A7D75454}
+		{02DB8B60-F559-4EED-841E-5C16A804C852} = {891CBE37-8B7A-44E7-A200-71A4A7D75454}
+		{92D091EF-366D-403C-A4EB-A06C0C063700} = {891CBE37-8B7A-44E7-A200-71A4A7D75454}
 	EndGlobalSection
 EndGlobal

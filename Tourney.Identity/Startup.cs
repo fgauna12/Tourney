@@ -10,13 +10,6 @@ namespace Tourney.Identity
 {
     public class Startup
     {
-        private static class Secrets
-        {
-            public const string AzureAdClientId = "AzureAd:ClientId";
-            public const string AzureAdClientSecret = "AzureAd:ClientSecret";
-            public const string AzureAdAuthority = "AzureAd:Authority";
-        }
-
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -67,14 +60,6 @@ namespace Tourney.Identity
             }
 
             app.UseIdentityServer();
-
-            //See AzureAdOpenConnectionMiddlewareExtension
-            app.UseAzureAdOpenConnect(new AzureAdSettings()
-            {
-                Authority = Configuration[Secrets.AzureAdAuthority],
-                ClientId = Configuration[Secrets.AzureAdClientId],
-                ClientSecret = Configuration[Secrets.AzureAdClientSecret]
-            });
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();

@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.4.0" />
-    <PackageReference Include="RavenDB.Client" Version="3.5.3" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <PackageReference Include="Autofac" Version="4.4.0" />
+    <PackageReference Include="RavenDB.Client" Version="3.5.3" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,14 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="1.1.0" />
+    <PackageReference Include="MediatR" Version="3.0.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
@@ -20,8 +25,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tourney.Application\Tourney.Application.csproj" />
-    <ProjectReference Include="..\Tourney.Infrastructure.Dtos\Tourney.Infrastructure.Dtos.csproj" />
+    <ProjectReference Include="..\Tourney.Services.Tournaments.Client\Tourney.Services.Tournaments.Client.csproj" />
+    <ProjectReference Include="..\Tourney.Services.Tournaments.Contracts\Tourney.Services.Tournaments.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

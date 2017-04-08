@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Tourney.Application;
+using Tourney.Services.Tournaments.Client;
 
 namespace Tourney.Web
 {
@@ -85,10 +85,7 @@ namespace Tourney.Web
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule(new ApplicationModule()
-            {
-                RavenConfiguration = Configuration.GetSection("ConnectionStrings:Raven").Get<RavenConfiguration>()
-            });
+            builder.RegisterModule(new TournamentClientModule());
 
             builder.Populate(services);
             this.ApplicationContainer = builder.Build();

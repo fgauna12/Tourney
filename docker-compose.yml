@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  tourney.web:
+    image: tourney.web
+    build:
+      context: ./Tourney.Web
+      dockerfile: Dockerfile
+
+  tourney.identity:
+    image: tourney.identity
+    build:
+      context: ./Tourney.Identity
+      dockerfile: Dockerfile  
+
+  tourney.services.tournaments:
+    image: tourney.services.tournaments
+    build:
+      context: ./../Tourney.Services.Tournaments
+      dockerfile: Dockerfile
+
+ 
