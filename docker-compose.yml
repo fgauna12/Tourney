@@ -7,19 +7,13 @@ services:
       context: ./Tourney.Web
       dockerfile: Dockerfile
     depends_on:
-      - tourney.services.tournaments
+      - tourney.services.participants
 
   tourney.identity:
     image: tourney.identity
     build:
       context: ./Tourney.Identity
       dockerfile: Dockerfile  
-
-  tourney.services.tournaments:
-    image: tourney.services.tournaments
-    build:
-      context: ./../Tourney.Services.Tournaments
-      dockerfile: Dockerfile
 
   tourney.services.participants:
     image: tourney.services.participants

@@ -13,12 +13,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "5000:80"
-
-  tourney.services.tournaments:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "5004:80"
     
   tourney.services.participants:
     environment:
