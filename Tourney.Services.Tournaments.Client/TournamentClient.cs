@@ -23,5 +23,34 @@ namespace Tourney.Services.Tournaments.Client
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<PagedResponse<Tournament>>(content);
         }
+
+        async Task<UpdateTournamentResponse> UpdateTournamentAsync(Tournament tournament)
+        {
+            var response = await _httpClient.PostAsync("/api/tournaments", new JsonContent(tournament));
+            response.EnsureSuccessStatusCode();
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<UpdateTournamentResponse>(content);
+        }
+    }
+
+    public class JsonContent : StringContent
+    {
+        public JsonContent(object content) : this(JsonConvert.SerializeObject(content))
+        {}
+
+        public JsonContent(string content) : base(content)
+        {
+            Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+        }
+    }
+
+    public class UpdateTournament : IRequest<Tournament>
+    {
+
+    }
+
+    public class UpdateTournamentResponse
+    {
+
     }
 }
