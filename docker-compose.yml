@@ -18,5 +18,5 @@ services:
   tourney.services.participants:
     image: tourney.services.participants
     build:
-      context: ./../Tourney.Services.Participants
+      context: ./Tourney.Services.Participants
       dockerfile: Dockerfile
