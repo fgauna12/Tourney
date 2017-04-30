@@ -4,19 +4,24 @@ services:
   tourney.web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - TournamentService=http://tourney.services.tournaments:5004
+      - ParticipantService=http://tourney.services.participants
     ports:
-      - "5001:5001"
+      - "5001:80"
 
   tourney.identity:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "5000:5000"
+      - "5000:80"
 
   tourney.services.tournaments:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "5004:5004"
+      - "5004:80"
     
+  tourney.services.participants:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5005:80"

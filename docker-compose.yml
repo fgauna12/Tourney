@@ -20,3 +20,9 @@ services:
     build:
       context: ./../Tourney.Services.Tournaments
       dockerfile: Dockerfile
+
+  tourney.services.participants:
+    image: tourney.services.participants
+    build:
+      context: ./../Tourney.Services.Participants
+      dockerfile: Dockerfile

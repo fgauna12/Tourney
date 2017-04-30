@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Tourney.Services.Tournaments.Client;
+using Tourney.Services.Participants.Client;
 
 namespace Tourney.Web
 {
@@ -90,7 +90,7 @@ namespace Tourney.Web
 
             builder.RegisterModule(new TournamentClientModule()
             {
-                BaseUri = Environment.GetEnvironmentVariable("TournamentService")
+                BaseUri = Environment.GetEnvironmentVariable("ParticipantService")
             });
 
             builder.Populate(services);

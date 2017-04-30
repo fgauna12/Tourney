@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Tourney.Infrastructure.Dtos;
-using Tourney.Services.Tournaments.Client;
 using MediatR;
+using Tourney.Services.Participants.Client.Tournaments.Request;
 
 namespace Tourney.Web.Controllers
 {
