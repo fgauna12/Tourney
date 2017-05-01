@@ -15,6 +15,7 @@ import { NotfoundComponent } from './routing/notfound/notfound.component';
 import { RoutingModule } from './routing/routing.module';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
 import { CallbackComponent } from './login/callback/callback.component';
+import { ListTournamentsComponent } from './tournament/list-tournaments/list-tournaments.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CallbackComponent } from './login/callback/callback.component';
     DashboardComponent,
     NotfoundComponent,
     NewTournamentComponent,
-    CallbackComponent
+    CallbackComponent,
+    ListTournamentsComponent
   ],
   imports: [
     BrowserModule,
